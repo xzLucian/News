@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--spring mvc配置-->
+    <!--在指定包下扫描注解-->
+    <context:component-scan base-package="com"/>
+    <!--注解驱动-->
+    <mvc:annotation-driven/>
+    <!--开启静态资源解析-->
+    <mvc:default-servlet-handler/>
+    <!--设定前后缀-->
+    <!-- Jsp视图解析器 -->
+    <bean id="jspViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="1" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView" />
+        <property name="prefix" value="/jsp/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
